@@ -28,6 +28,14 @@ class Song
   end
   
   def self.genre_count
-    @@genres.uniq.size
+    genre_count_hash = {}
+    @@genres.each do | genre| 
+     if genre_count_hash.has_key?(genre) 
+      genre_count_hash[genre] += 1 
+     else
+       genre_count_hash[genre] = 1 
+     end
+    end
+    genre_count_hash
   end
 end
